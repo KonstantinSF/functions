@@ -6,6 +6,8 @@ int Add(int a, int b);	//Прототип функции (Объявление функции - Function declara
 int Sub(int a, int b);
 int Mul(int a, int b);
 double Div(int a, int b);
+int Factorial(int a);
+double Power(double a, int b);
 
 void main()
 {
@@ -17,6 +19,8 @@ void main()
 	cout << a << " - " << b << " = " << Sub(a, b) << endl;
 	cout << a << " * " << b << " = " << Mul(a, b) << endl;
 	cout << a << " / " << b << " = " << Div(a, b) << endl;
+	cout << a << "!="				 << Factorial(a) << endl;
+	cout << a << " в степени "<< b << "=" << Power(a,b) << endl;
 }
 
 int Add(int a, int b)//Реализация функции (Определение функции - Function definition)
@@ -39,4 +43,27 @@ double Div(int a, int b)
 {
 	//Division - Деление
 	return (double)a / b;
+}
+int Factorial(int a)
+{
+	int c = 1;
+	for (int i = 1; i <= a; i++) c *=i;
+	return c;
+}
+double Power(double a, int b)
+{
+	float c;
+	if (b > 0)
+	{
+		c = 1;
+		for (int i = 1; i <= b; i++) c *= a;
+	}
+	else if (b < 0)
+	{
+		c = 1;
+		for (int i = 1; i <= b; i++) c *= a;
+		c = 1 / c;
+	}
+	else c = 1;
+	return c;
 }
