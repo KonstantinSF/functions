@@ -10,7 +10,12 @@ void Sort(int arr[], const int n);
 void main()
 {
 	setlocale(LC_ALL, " ");
-
+	const int n = 5;
+	int arr[n];
+	FillRand(arr, n);
+	Print(arr, n);
+	Sort(arr, n);
+	Print(arr, n);
 }
 
 void FillRand(int arr[], const int n)//код заполнения массива случ числами
