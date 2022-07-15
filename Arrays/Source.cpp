@@ -46,7 +46,11 @@ void FillRand(int arr[], const int n)//код заполнения массив�
 }
 void FillRand(double arr[], const int n)//код заполнения массива случ числами
 {
-	for (int i = 0; i < n; i++) arr[i] = rand() % 100;
+	for (int i = 0; i < n; i++)
+	{
+		arr[i] = rand() % 1000;
+		arr[i] /= 100;
+	}
 }
 void Print(int arr[], const int n)
 {
@@ -88,7 +92,7 @@ void Sort(double arr[], const int n)
 		{
 			if (arr[j] < arr[i])
 			{
-				int buffer = arr[i];
+				double buffer = arr[i];
 				arr[i] = arr[j];
 				arr[j] = buffer;
 			}
@@ -114,6 +118,7 @@ double Sum(double arr[], const int n)
 	}
 	return sum;
 }
+
 double Avg(int arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
