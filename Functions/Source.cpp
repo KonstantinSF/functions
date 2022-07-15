@@ -7,7 +7,7 @@ int Sub(int a, int b);
 int Mul(int a, int b);
 double Div(int a, int b);
 int Factorial(int a);
-double Power(double a, int b);
+double Power(float a, int b);
 
 void main()
 {
@@ -50,20 +50,15 @@ int Factorial(int a)
 	for (int i = 1; i <= a; i++) c *=i;
 	return c;
 }
-double Power(double a, int b)
+double Power(float a, int b)
 {
-	float c;
-	if (b > 0)
+	float c=1;
+	
+	if (b < 0)
 	{
-		c = 1;
-		for (int i = 1; i <= b; i++) c *= a;
+		a = 1 / a;
+		b = -b;
 	}
-	else if (b < 0)
-	{
-		c = 1;
-		for (int i = 1; i <= b; i++) c *= a;
-		c = 1 / c;
-	}
-	else c = 1;
+		for (int i = 0; i < b; i++) c *= a;
 	return c;
 }
