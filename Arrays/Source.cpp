@@ -1,4 +1,4 @@
-//Arrays
+﻿//Arrays
 #include<iostream>
 using namespace std;
 #define tab "\t"
@@ -7,19 +7,22 @@ void FillRand(int arr[], const int n);
 void Print(int arr[], const int n);
 void Sort(int arr[], const int n);
 int Sum(int arr[], const int n);
+double Avg(int arr[], const int n);
 
 void main()
 {
-	setlocale(LC_ALL, " ");
+	setlocale(LC_ALL, "Russian");
 	const int n = 5;
 	int arr[n];
 	FillRand(arr, n);
 	Print(arr, n);
 	Sort(arr, n);
 	Print(arr, n);
+	cout << "Сумма элементов массива: " << Sum(arr, n) << endl;
+	cout << "Среднее элементов массива: " << Avg(arr, n) << endl;
 }
 
-void FillRand(int arr[], const int n)//��� ���������� ������� ���� �������
+void FillRand(int arr[], const int n)//код заполнения массива случ числами
 {
 	for (int i = 0; i < n; i++) arr[i] = rand() % 100;
 }
@@ -54,4 +57,8 @@ int Sum(int arr[], const int n)
 		sum += arr[i];
 	}
 	return sum;
+}
+double Avg(int arr[], const int n)
+{
+	return (double)Sum(arr, n) / n;
 }
