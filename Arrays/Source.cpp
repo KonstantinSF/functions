@@ -2,9 +2,12 @@
 #include<iostream>
 using namespace std;
 #define tab "\t"
+const int ROWS = 3;
+const int COLS = 4;
 
 void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
+void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
@@ -17,6 +20,7 @@ double Sum(double arr[], const int n);
 
 double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
+
 
 void main()
 {
@@ -38,6 +42,10 @@ void main()
 	Print(brr, SIZE);
 	cout << "Сумма элементов массива: " << Sum(brr, SIZE) << endl;
 	cout << "Среднее-арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
+	
+	int i_arr_2[ROWS][COLS];
+	FillRand(i_arr_2, ROWS, COLS);
+	Print(i_arr_2, ROWS, COLS);
 }
 
 void FillRand(int arr[], const int n)//код заполнения массива случ числами
