@@ -1,4 +1,4 @@
-ï»¿//Arrays
+//Arrays
 #include<iostream>
 using namespace std;
 #define tab "\t"
@@ -17,12 +17,9 @@ void Sort(double arr[], const int n);
 
 int Sum(int arr[], const int n);
 double Sum(double arr[], const int n);
-int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
-double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
-
 
 
 void main()
@@ -35,8 +32,8 @@ void main()
 
 	Sort(arr, n);
 	Print(arr, n);
-	cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Sum(arr, n) << endl;
-	cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Avg(arr, n) << endl;
+	cout << "Ñóììà ýëåìåíòîâ ìàññèâà: " << Sum(arr, n) << endl;
+	cout << "Ñðåäíåå ýëåìåíòîâ ìàññèâà: " << Avg(arr, n) << endl;
 
 	const int SIZE = 8;
 	double brr[SIZE];
@@ -44,31 +41,19 @@ void main()
 	Print(brr, SIZE);
 	Sort(brr, SIZE);
 	Print(brr, SIZE);
-	cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Sum(brr, SIZE) << endl;
-	cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ-Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Avg(brr, SIZE) << endl;
-	
+	cout << "Ñóììà ýëåìåíòîâ ìàññèâà: " << Sum(brr, SIZE) << endl;
+	cout << "Ñðåäíåå-àðèôìåòè÷åñêîå ýëåìåíòîâ ìàññèâà: " << Avg(brr, SIZE) << endl;
+
 	int arr_2D_sample[ROWS][COLS];
 	FillRand(arr_2D_sample, ROWS, COLS);
-	//Print(arr_2D_sample, ROWS, COLS);
-	for (int i = 0; i < ROWS; i++)//Ð²Ð¼ÐµÑÑ‚Ð¾ Print 2D
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			cout << arr_2D_sample[i][j] << tab;
-		}
-		cout << endl;
-	}
-	Sum(arr_2D_sample, ROWS, COLS);
-	cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² 2D Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Sum(arr_2D_sample, ROWS, COLS) << endl;
-	Avg(arr_2D_sample, ROWS, COLS);
-	cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼. ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² 2D Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Avg(arr_2D_sample, ROWS, COLS) << endl;
+	Print(arr_2D_sample, ROWS, COLS);
 }
 
-void FillRand(int arr[], const int n)//ÐºÐ¾Ð´ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ð¼Ð°ÑÑÐ¸Ð²Ð° ÑÐ»ÑƒÑ‡ Ñ‡Ð¸ÑÐ»Ð°Ð¼Ð¸
+void FillRand(int arr[], const int n)//êîä çàïîëíåíèÿ ìàññèâà ñëó÷ ÷èñëàìè
 {
 	for (int i = 0; i < n; i++) arr[i] = rand() % 100;
 }
-void FillRand(double arr[], const int n)//ÐºÐ¾Ð´ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ð¼Ð°ÑÑÐ¸Ð²Ð° ÑÐ»ÑƒÑ‡ Ñ‡Ð¸ÑÐ»Ð°Ð¼Ð¸
+void FillRand(double arr[], const int n)//êîä çàïîëíåíèÿ ìàññèâà ñëó÷ ÷èñëàìè
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -82,7 +67,7 @@ void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			arr[i][j] = rand() % 15; 
+			arr[i][j] = rand() % 15;
 		}
 	}
 }
@@ -103,15 +88,15 @@ void Print(double arr[], const int n)
 	}
 	cout << endl;
 }
-void Print(int arr[ROWS][COLS], const int ROWS, const int COLS)
+void Print (int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			cout << arr[i][j] << tab; 
+			cout << arr[i][j] << tab;
 		}
-		cout << endl; 
+		cout << endl;
 	}
 }
 
@@ -148,7 +133,7 @@ void Sort(double arr[], const int n)
 
 int Sum(int arr[], const int n)
 {
-	int sum = 0; 
+	int sum = 0;
 	for (int i = 0; i < n; i++)
 	{
 		sum += arr[i];
@@ -164,18 +149,6 @@ double Sum(double arr[], const int n)
 	}
 	return sum;
 }
-int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	int sum = 0; 
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			sum += arr[i][j];
-		}
-	}
-	return sum;
-}
 
 double Avg(int arr[], const int n)
 {
@@ -184,17 +157,4 @@ double Avg(int arr[], const int n)
 double Avg(double arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
-}
-double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	int sum = 0;
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			sum += arr[i][j];
-		}
-	}
-	double avg = sum / (ROWS * COLS);
-	return avg;
 }
