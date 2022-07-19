@@ -1,8 +1,8 @@
-#pragma warning (disable:4326)
+п»ї#pragma warning (disable:4326)
 #include<iostream>
 using namespace std;
 
-int Add(int a, int b);	//Прототип функции (Объявление функции - Function declaration)
+int Add(int a, int b);	//РџСЂРѕС‚РѕС‚РёРї С„СѓРЅРєС†РёРё (РћР±СЉСЏРІР»РµРЅРёРµ С„СѓРЅРєС†РёРё - Function declaration)
 int Sub(int a, int b);
 int Mul(int a, int b);
 double Div(int a, int b);
@@ -13,35 +13,35 @@ void main()
 {
 	setlocale(LC_ALL, "");
 	int a, b;
-	cout << "Введите два числа: "; cin >> a >> b;
-	int c = Add(a, b);//Использование функции (Вызов функции - Function call)
+	cout << "Р’РІРµРґРёС‚Рµ РґРІР° С‡РёСЃР»Р°: "; cin >> a >> b;
+	int c = Add(a, b);//РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ С„СѓРЅРєС†РёРё (Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё - Function call)
 	cout << a << " + " << b << " = " << c << endl;
 	cout << a << " - " << b << " = " << Sub(a, b) << endl;
 	cout << a << " * " << b << " = " << Mul(a, b) << endl;
 	cout << a << " / " << b << " = " << Div(a, b) << endl;
 	cout << a << "!="				 << Factorial(a) << endl;
-	cout << a << " в степени "<< b << "=" << Power(a,b) << endl;
+	cout << a << " РІ СЃС‚РµРїРµРЅРё "<< b << "=" << Power(a,b) << endl;
 }
 
-int Add(int a, int b)//Реализация функции (Определение функции - Function definition)
+int Add(int a, int b)//Р РµР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёРё (РћРїСЂРµРґРµР»РµРЅРёРµ С„СѓРЅРєС†РёРё - Function definition)
 {
-	//Addition - Сложение
+	//Addition - РЎР»РѕР¶РµРЅРёРµ
 	int c = a + b;
 	return c;
 }
 int Sub(int a, int b)
 {
-	//Subtraction - Вычитание
+	//Subtraction - Р’С‹С‡РёС‚Р°РЅРёРµ
 	return a - b;
 }
 int Mul(int a, int b)
 {
-	//Multiplication - Умножение
+	//Multiplication - РЈРјРЅРѕР¶РµРЅРёРµ
 	return a * b;
 }
 double Div(int a, int b)
 {
-	//Division - Деление
+	//Division - Р”РµР»РµРЅРёРµ
 	return (double)a / b;
 }
 int Factorial(int a)

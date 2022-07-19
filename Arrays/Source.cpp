@@ -11,6 +11,7 @@ void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
+void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void Sort(int arr[], const int n);
 void Sort(double arr[], const int n);
@@ -22,8 +23,6 @@ int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
 double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
-
-
 
 void main()
 {
@@ -49,7 +48,7 @@ void main()
 	
 	int arr_2D_sample[ROWS][COLS];
 	FillRand(arr_2D_sample, ROWS, COLS);
-	//Print(arr_2D_sample, ROWS, COLS);
+	Print(arr_2D_sample, ROWS, COLS);
 	for (int i = 0; i < ROWS; i++)//вместо Print 2D
 	{
 		for (int j = 0; j < COLS; j++)
