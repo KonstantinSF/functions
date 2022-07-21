@@ -4,6 +4,7 @@ using namespace std;
 #define tab "\t"
 const int ROWS = 3;
 const int COLS = 4;
+int shift_left;
 
 void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
@@ -28,6 +29,8 @@ int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
+void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
 void main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -35,7 +38,6 @@ void main()
 	int arr[n];
 	FillRand(arr, n);
 	Print(arr, n);
-
 	Sort(arr, n);
 	Print(arr, n);
 	cout << "Сумма элементов массива: " << Sum(arr, n) << endl;
@@ -49,8 +51,8 @@ void main()
 	Print(brr, SIZE);
 	cout << "Сумма элементов массива: " << Sum(brr, SIZE) << endl;
 	cout << "Среднее-арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
-	
 	int arr_2D_sample[ROWS][COLS];
+	int arr_2D_shift_left[ROWS][COLS];
 	FillRand(arr_2D_sample, ROWS, COLS);
 	Print(arr_2D_sample, ROWS, COLS);
 	Sum(arr_2D_sample, ROWS, COLS);
@@ -58,6 +60,9 @@ void main()
 	cout << "Среднее арифм. элементов 2D массива: " << Avg(arr_2D_sample, ROWS, COLS) << endl;
 	cout << "Минимальное значение в 2D массиве: " << minValueIn(arr_2D_sample, ROWS, COLS) << endl;
 	cout << "Максимальное значение в 2D массиве: " << maxValueIn(arr_2D_sample, ROWS, COLS) << endl;
+	cout << "Введите значение сдвига влево: "; cin >> shift_left;
+	ShiftLeft(arr_2D_sample, ROWS, COLS);
+	Print(arr_2D_sample, ROWS, COLS); 
 }
 
 void FillRand(int arr[], const int n)//код заполнения массива случ числами
@@ -210,4 +215,20 @@ int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS)
 		}
 	}
 	return maxValue;
+}
+
+void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int k = 1; k <= shift_left; k++)
+	{
+		int buffer = arr[0][0];
+		for (int i = 0; i < ROWS; i++)
+		{
+			for (int j = 0; j < COLS; j++)
+			{
+				arr[i][j] = arr[i][j + 1];
+			}
+		}
+		arr[ROWS-1][COLS-1] = buffer;
+	}
 }
