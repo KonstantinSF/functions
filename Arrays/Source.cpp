@@ -24,6 +24,8 @@ double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
 double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
+int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
+
 void main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -49,18 +51,11 @@ void main()
 	int arr_2D_sample[ROWS][COLS];
 	FillRand(arr_2D_sample, ROWS, COLS);
 	Print(arr_2D_sample, ROWS, COLS);
-	for (int i = 0; i < ROWS; i++)//вместо Print 2D
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			cout << arr_2D_sample[i][j] << tab;
-		}
-		cout << endl;
-	}
 	Sum(arr_2D_sample, ROWS, COLS);
 	cout << "Сумма элементов 2D массива: " << Sum(arr_2D_sample, ROWS, COLS) << endl;
 	Avg(arr_2D_sample, ROWS, COLS);
 	cout << "Среднее арифм. элементов 2D массива: " << Avg(arr_2D_sample, ROWS, COLS) << endl;
+	cout << "Минимальное значение в 2D массиве: " << minValueIn(arr_2D_sample, ROWS, COLS) << endl;
 }
 
 void FillRand(int arr[], const int n)//код заполнения массива случ числами
@@ -186,14 +181,18 @@ double Avg(double arr[], const int n)
 }
 double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	int sum = 0;
+	return (double) Sum (arr, ROWS, COLS) / (ROWS * COLS);
+}
+
+int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	int minValue = 0; 
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			sum += arr[i][j];
+			if (arr[i][j] < minValue) minValue = arr[i][j];
 		}
 	}
-	double avg = sum / (ROWS * COLS);
-	return avg;
+	return minValue; 
 }
