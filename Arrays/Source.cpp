@@ -1,42 +1,14 @@
 ﻿//Arrays
-#include<iostream>
-using namespace std;
-#define tab "\t"
-const int ROWS = 3;
-const int COLS = 4;
+#include "stdafx.h"
+#include "Constants.h"
+#include"FillRand.h"
+#include"Print.h"
+#include"Sort.h"
+#include"Statistic.h"
+#include"Shifts.h"
+
 int shift_left;
 int shift_right;
-
-void FillRand(int arr[], const int n);
-void FillRand(double arr[], const int n);
-void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
-void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS);
-void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS);
-
-void Print(int arr[], const int n);
-void Print(double arr[], const int n);
-void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
-void Print(char arr[ROWS][COLS], const int ROWS, const int COLS);
-
-void Sort(int arr[], const int n);
-void Sort(double arr[], const int n);
-void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
-void Sort(char arr[ROWS][COLS], const int ROWS, const int COLS);
-
-int Sum(int arr[], const int n);
-double Sum(double arr[], const int n);
-int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS);
-
-double Avg(int arr[], const int n);
-double Avg(double arr[], const int n);
-double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
-
-int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
-
-int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
-
-void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS);
-void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void main()
 {
@@ -77,190 +49,6 @@ void main()
 	Print(arr_2D_char, ROWS, COLS);
 }
 
-void FillRand(int arr[], const int n)//код заполнения массива случ числами
-{
-	for (int i = 0; i < n; i++) arr[i] = rand() % 100;
-}
-void FillRand(double arr[], const int n)//код заполнения массива случ числами
-{
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 1000;
-		arr[i] /= 100;
-	}
-}
-void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] = rand() % 100; 
-		}
-	}
-}
-void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] = rand() % 1000;
-			arr[i][j] /= 100;
-		}
-	}
-}
-void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] =char (rand()%256); 
-		}
-	}
-}
-
-void Print(int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-}
-void Print(double arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-}
-void Print(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			cout << arr[i][j] << tab; 
-		}
-		cout << endl; 
-	}
-}
-void Print(char arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			cout << arr[i][j] << tab;
-		}
-		cout << endl;
-	}
-}
-
-void Sort(int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = i + 1; j < n; j++)
-		{
-			if (arr[j] < arr[i])
-			{
-				int buffer = arr[i];
-				arr[i] = arr[j];
-				arr[j] = buffer;
-			}
-		}
-	}
-}
-void Sort(double arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = i + 1; j < n; j++)
-		{
-			if (arr[j] < arr[i])
-			{
-				double buffer = arr[i];
-				arr[i] = arr[j];
-				arr[j] = buffer;
-			}
-		}
-	}
-}
-
-int Sum(int arr[], const int n)
-{
-	int sum = 0; 
-	for (int i = 0; i < n; i++)
-	{
-		sum += arr[i];
-	}
-	return sum;
-}
-double Sum(double arr[], const int n)
-{
-	int sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		sum += arr[i];
-	}
-	return sum;
-}
-int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	int sum = 0; 
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			sum += arr[i][j];
-		}
-	}
-	return sum;
-}
-
-double Avg(int arr[], const int n)
-{
-	return (double)Sum(arr, n) / n;
-}
-double Avg(double arr[], const int n)
-{
-	return (double)Sum(arr, n) / n;
-}
-double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	return (double) Sum (arr, ROWS, COLS) / (ROWS * COLS);
-}
-
-int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	int minValue = arr[0][0];
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			if (arr[i][j] < minValue) minValue = arr[i][j];
-		}
-	}
-	return minValue; 
-}
-
-int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	int maxValue = arr[0][0];
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			if (arr[i][j] > maxValue) maxValue = arr[i][j];
-		}
-	}
-	return maxValue;
-}
-
 void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int k = 1; k <= shift_left; k++)
@@ -273,19 +61,19 @@ void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS)
 				arr[i][j] = arr[i][j + 1];
 			}
 		}
-		arr[ROWS-1][COLS-1] = buffer;
+		arr[ROWS - 1][COLS - 1] = buffer;
 	}
 }
 void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int s = 0; s < shift_right; s++)
 	{
-		int buffer = arr[ROWS - 1][COLS - 1]; 
-		for (int i = ROWS-1; i>=0; i--)
+		int buffer = arr[ROWS - 1][COLS - 1];
+		for (int i = ROWS - 1; i >= 0; i--)
 		{
-			for (int j = COLS-1; j>=0; j--)
+			for (int j = COLS - 1; j >= 0; j--)
 			{
-				arr[i][j] = arr[i][j - 1]; 
+				arr[i][j] = arr[i][j - 1];
 			}
 		}
 		arr[0][0] = buffer;
