@@ -10,13 +10,18 @@ int shift_right;
 void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS);
+void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
 void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void Print(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void Sort(int arr[], const int n);
 void Sort(double arr[], const int n);
+void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void Sort(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int Sum(int arr[], const int n);
 double Sum(double arr[], const int n);
@@ -54,7 +59,7 @@ void main()
 	cout << "Сумма элементов массива: " << Sum(brr, SIZE) << endl;
 	cout << "Среднее-арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
 	int arr_2D_sample[ROWS][COLS];
-	int arr_2D_shift_left[ROWS][COLS];
+	char arr_2D_char[ROWS][COLS];
 	FillRand(arr_2D_sample, ROWS, COLS);
 	Print(arr_2D_sample, ROWS, COLS);
 	Sum(arr_2D_sample, ROWS, COLS);
@@ -68,6 +73,8 @@ void main()
 	cout << "Введите значение сдвига вправо: "; cin >> shift_right;
 	ShiftRight(arr_2D_sample, ROWS, COLS);
 	Print(arr_2D_sample, ROWS, COLS);
+	FillRand(arr_2D_char, ROWS, COLS);
+	Print(arr_2D_char, ROWS, COLS);
 }
 
 void FillRand(int arr[], const int n)//код заполнения массива случ числами
@@ -89,6 +96,27 @@ void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
 		for (int j = 0; j < COLS; j++)
 		{
 			arr[i][j] = rand() % 100; 
+		}
+	}
+}
+void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] = rand() % 1000;
+			arr[i][j] /= 100;
+		}
+	}
+}
+void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			arr[i][j] =char (rand()%256); 
 		}
 	}
 }
@@ -118,6 +146,17 @@ void Print(int arr[ROWS][COLS], const int ROWS, const int COLS)
 			cout << arr[i][j] << tab; 
 		}
 		cout << endl; 
+	}
+}
+void Print(char arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			cout << arr[i][j] << tab;
+		}
+		cout << endl;
 	}
 }
 
