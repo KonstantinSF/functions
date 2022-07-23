@@ -5,6 +5,7 @@ using namespace std;
 const int ROWS = 3;
 const int COLS = 4;
 int shift_left;
+int shift_right;
 
 void FillRand(int arr[], const int n);
 void FillRand(double arr[], const int n);
@@ -30,6 +31,7 @@ int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void main()
 {
@@ -63,6 +65,9 @@ void main()
 	cout << "Введите значение сдвига влево: "; cin >> shift_left;
 	ShiftLeft(arr_2D_sample, ROWS, COLS);
 	Print(arr_2D_sample, ROWS, COLS); 
+	cout << "Введите значение сдвига вправо: "; cin >> shift_right;
+	ShiftRight(arr_2D_sample, ROWS, COLS);
+	Print(arr_2D_sample, ROWS, COLS);
 }
 
 void FillRand(int arr[], const int n)//код заполнения массива случ числами
@@ -230,5 +235,20 @@ void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS)
 			}
 		}
 		arr[ROWS-1][COLS-1] = buffer;
+	}
+}
+void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int s = 0; s < shift_right; s++)
+	{
+		int buffer = arr[ROWS - 1][COLS - 1]; 
+		for (int i = ROWS-1; i>=0; i--)
+		{
+			for (int j = COLS-1; j>=0; j--)
+			{
+				arr[i][j] = arr[i][j - 1]; 
+			}
+		}
+		arr[0][0] = buffer;
 	}
 }
