@@ -40,6 +40,8 @@ double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void ShiftLeft(double arr[ROWS][COLS], const int ROWS, const int COLS);
+void ShiftRight(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void main()
 {
@@ -89,6 +91,12 @@ void main()
 	cout << "Среднее арифметич. элементов 2D массива дробных чисел: " << Avg(arr_2D_double, ROWS, COLS) << endl;
 	cout << "Минимальное значение элементов 2D массива дробных чисел: " << minValueIn(arr_2D_double, ROWS, COLS) << endl;
 	cout << "Максимальное значение элементов 2D массива дробных чисел: " << maxValueIn(arr_2D_double, ROWS, COLS) << endl;
+	ShiftRight(arr_2D_double, ROWS, COLS);
+	Print(arr_2D_double, ROWS, COLS);
+	cout << delimiter;
+	ShiftLeft(arr_2D_double, ROWS, COLS);
+	Print(arr_2D_double, ROWS, COLS);
+	cout << delimiter; 
 }
 
 void FillRand(int arr[], const int n)//код заполнения массива случ числами
@@ -358,6 +366,36 @@ void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS)
 			for (int j = COLS-1; j>=0; j--)
 			{
 				arr[i][j] = arr[i][j - 1]; 
+			}
+		}
+		arr[0][0] = buffer;
+	}
+}
+void ShiftLeft(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int k = 1; k <= shift_left; k++)
+	{
+		double buffer = arr[0][0];
+		for (int i = 0; i < ROWS; i++)
+		{
+			for (int j = 0; j < COLS; j++)
+			{
+				arr[i][j] = arr[i][j + 1];
+			}
+		}
+		arr[ROWS - 1][COLS - 1] = buffer;
+	}
+}
+void ShiftRight(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int k = 1; k <= shift_right; k++)
+	{
+		double buffer = arr[ROWS - 1][COLS - 1];
+		for (int i = ROWS - 1; i >= 0; i--)
+		{
+			for (int j = COLS - 1; j >= 0; j--)
+			{
+				arr[i][j] = arr[i][j - 1];
 			}
 		}
 		arr[0][0] = buffer;
