@@ -2,6 +2,7 @@
 #include<iostream>
 using namespace std;
 #define tab "\t"
+#define delimiter "-----------------------------------------------\n"
 const int ROWS = 3;
 const int COLS = 4;
 int shift_left;
@@ -16,24 +17,26 @@ void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(int arr[], const int n);
 void Print(double arr[], const int n);
 void Print(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void Print(double arr[ROWS][COLS], const int ROWS, const int COLS);
 void Print(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void Sort(int arr[], const int n);
 void Sort(double arr[], const int n);
-void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
-void Sort(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int Sum(int arr[], const int n);
 double Sum(double arr[], const int n);
 int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS);
+double Sum(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
 double Avg(int arr[], const int n);
 double Avg(double arr[], const int n);
 double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
+double Avg(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
 int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
-
 int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
+double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
+double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -60,9 +63,10 @@ void main()
 	cout << "Среднее-арифметическое элементов массива: " << Avg(brr, SIZE) << endl;
 	int arr_2D_sample[ROWS][COLS];
 	char arr_2D_char[ROWS][COLS];
+	double arr_2D_double[ROWS][COLS];
 	FillRand(arr_2D_sample, ROWS, COLS);
 	Print(arr_2D_sample, ROWS, COLS);
-	Sum(arr_2D_sample, ROWS, COLS);
+	cout << delimiter;
 	cout << "Сумма элементов 2D массива: " << Sum(arr_2D_sample, ROWS, COLS) << endl;
 	cout << "Среднее арифм. элементов 2D массива: " << Avg(arr_2D_sample, ROWS, COLS) << endl;
 	cout << "Минимальное значение в 2D массиве: " << minValueIn(arr_2D_sample, ROWS, COLS) << endl;
@@ -73,8 +77,18 @@ void main()
 	cout << "Введите значение сдвига вправо: "; cin >> shift_right;
 	ShiftRight(arr_2D_sample, ROWS, COLS);
 	Print(arr_2D_sample, ROWS, COLS);
+	cout << delimiter;
 	FillRand(arr_2D_char, ROWS, COLS);
 	Print(arr_2D_char, ROWS, COLS);
+	cout << delimiter;
+	FillRand(arr_2D_double, ROWS, COLS);
+	Print(arr_2D_double, ROWS, COLS);
+	cout << delimiter; 
+	Sum(arr_2D_sample, ROWS, COLS);
+	cout << "Сумма элементов 2D массива дробных чисел: " << Sum(arr_2D_double, ROWS, COLS) << endl;
+	cout << "Среднее арифметич. элементов 2D массива дробных чисел: " << Avg(arr_2D_double, ROWS, COLS) << endl;
+	cout << "Минимальное значение элементов 2D массива дробных чисел: " << minValueIn(arr_2D_double, ROWS, COLS) << endl;
+	cout << "Максимальное значение элементов 2D массива дробных чисел: " << maxValueIn(arr_2D_double, ROWS, COLS) << endl;
 }
 
 void FillRand(int arr[], const int n)//код заполнения массива случ числами
@@ -146,6 +160,17 @@ void Print(int arr[ROWS][COLS], const int ROWS, const int COLS)
 			cout << arr[i][j] << tab; 
 		}
 		cout << endl; 
+	}
+}
+void Print(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			cout << arr[i][j] << tab;
+		}
+		cout << endl;
 	}
 }
 void Print(char arr[ROWS][COLS], const int ROWS, const int COLS)
@@ -221,6 +246,18 @@ int Sum(int arr[ROWS][COLS], const int ROWS, const int COLS)
 	}
 	return sum;
 }
+double Sum(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	double sum = 0;
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			sum += arr[i][j];
+		}
+	}
+	return sum;
+}
 
 double Avg(int arr[], const int n)
 {
@@ -233,6 +270,18 @@ double Avg(double arr[], const int n)
 double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	return (double) Sum (arr, ROWS, COLS) / (ROWS * COLS);
+}
+double Avg(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	double avg = 0;
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			avg = (double) Sum (arr, ROWS, COLS) / (ROWS * COLS);
+		}
+	}
+	return avg;
 }
 
 int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS)
@@ -247,10 +296,33 @@ int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS)
 	}
 	return minValue; 
 }
-
 int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	int maxValue = arr[0][0];
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			if (arr[i][j] > maxValue) maxValue = arr[i][j];
+		}
+	}
+	return maxValue;
+}
+double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	double minValue = arr[0][0];
+	for (int i = 0; i < ROWS; i++)
+	{
+		for (int j = 0; j < COLS; j++)
+		{
+			if (arr[i][j] < minValue) minValue = arr[i][j];
+		}
+	}
+	return minValue;
+}
+double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	double maxValue = arr[0][0];
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
