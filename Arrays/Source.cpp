@@ -43,8 +43,10 @@ double maxValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void ShiftLeft(int arr[], const int n);
 void ShiftRight(int arr[], const int n);
-void ShiftLeft(double arr[], const int n);
-void ShiftRight(double arr[], const int n);
+void ShiftLeft(double arr[], const int SIZE);
+void ShiftRight(double arr[], const int SIZE);
+void ShiftLeft(char arr[], const int SIZE);
+void ShiftRight(char arr[], const int SIZE);
 void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS);
 void ShiftLeft(double arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -97,6 +99,12 @@ void main()
 	Print(arr_sample_char, SIZE);
 	Sort(arr_sample_char, SIZE);
 	cout << "Одномерный массив символов после сортировки: " << endl;
+	Print(arr_sample_char, SIZE);
+	ShiftLeft(arr_sample_char, SIZE);
+	cout << "Одномерный массив символов после сдвига влево: " << endl;
+	Print(arr_sample_char, SIZE);
+	ShiftRight(arr_sample_char, SIZE);
+	cout << "Одномерный массив символов после сдвига вправо: " << endl;
 	Print(arr_sample_char, SIZE);
 	cout << delimiter;
 	int arr_2D_sample[ROWS][COLS];
@@ -463,6 +471,30 @@ void ShiftRight(double arr[], const int SIZE)
 	for (int k = 0; k < shift_right; k++)
 	{
 		double buffer = arr[SIZE - 1];
+		for (int i = SIZE - 1; i >= 0; i--)
+		{
+			arr[i] = arr[i - 1];
+		}
+		arr[0] = buffer;
+	}
+}
+void ShiftLeft(char arr[], const int SIZE)
+{
+	for (int k = 0; k < shift_left; k++)
+	{
+		char buffer = arr[0];
+		for (int i = 0; i < SIZE; i++)
+		{
+			arr[i] = arr[i + 1];
+		}
+		arr[SIZE - 1] = buffer;
+	}
+}
+void ShiftRight(char arr[], const int SIZE)
+{
+	for (int k = 0; k < shift_right; k++)
+	{
+		char buffer = arr[SIZE - 1];
 		for (int i = SIZE - 1; i >= 0; i--)
 		{
 			arr[i] = arr[i - 1];
