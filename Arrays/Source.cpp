@@ -36,6 +36,10 @@ double Avg(double arr[], const int n);
 double Avg(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double Avg(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
+int minValueIn(int arr[], const int n);
+int maxValueIn(int arr[], const int n);
+double minValueIn(double arr[], const int SIZE);
+double maxValueIn(double arr[], const int SIZE);
 int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 int maxValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double minValueIn(double arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -66,6 +70,8 @@ void main()
 	Print(arr, n);
 	cout << "Сумма элементов массива: " << Sum(arr, n) << endl;
 	cout << "Среднее элементов массива: " << Avg(arr, n) << endl;
+	cout << "Минимальное значение в одномерном массиве целых чисел: " << minValueIn(arr, n) << endl; 
+	cout << "Максимальное значение в одномерном массиве целых чисел: " << maxValueIn(arr, n) << endl; 
 	Sort(arr, n);
 	cout << "Одномерный массив целых чисел после сортировки: " << endl;
 	Print(arr, n);
@@ -85,8 +91,10 @@ void main()
 	Sort(brr, SIZE);
 	cout << "Одномерный массив дробных чисел после сортировки: " << endl;
 	Print(brr, SIZE);
-	cout << "Сумма элементов дробного одномерного массива массива: " << Sum(brr, SIZE) << endl;
+	cout << "Сумма элементов дробного одномерного массива : " << Sum(brr, SIZE) << endl;
 	cout << "Среднее-арифметическое дробного одномерного массива: " << Avg(brr, SIZE) << endl;
+	cout << "Минимальное значение в одномерном массиве дробных чисел: " << minValueIn(brr, SIZE) << endl;
+	cout << "Максимальное значение в одномерном массиве дробных чисел: " << maxValueIn(brr, SIZE) << endl;
 	ShiftLeft(brr, SIZE);
 	cout << "Одномерный массив дробных чисел после сдвига влево: " << endl;
 	Print(brr, SIZE);
@@ -381,6 +389,42 @@ double Avg(double arr[ROWS][COLS], const int ROWS, const int COLS)
 	return avg;
 }
 
+int minValueIn(int arr[], const int n)
+{
+	int minvalue = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] < minvalue) minvalue = arr[i];
+	}
+	return minvalue;
+}
+int maxValueIn(int arr[], const int n)
+{
+	int maxvalue = arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] > maxvalue) maxvalue = arr[i];
+	}
+	return maxvalue;
+}
+double minValueIn(double arr[], const int SIZE)
+{
+	double minvalue = arr[0];
+	for (int i = 0; i < SIZE; i++)
+	{
+		if (arr[i] < minvalue) minvalue = arr[i];
+	}
+	return minvalue;
+}
+double maxValueIn(double arr[], const int SIZE)
+{
+	double maxvalue = arr[0];
+	for (int i = 0; i < SIZE; i++)
+	{
+		if (arr[i] > maxvalue) maxvalue = arr[i];
+	}
+	return maxvalue;
+}
 int minValueIn(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	int minValue = arr[0][0];
