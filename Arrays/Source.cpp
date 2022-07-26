@@ -8,6 +8,11 @@
 #include"statistics.h"
 #include"shifts.h"
 
+#include"print.cpp"
+
+int shift_left;
+int shift_right;
+
 void main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -112,89 +117,6 @@ void main()
 	Print(arr_2D_char, ROWS, COLS);
 }
 
-void FillRand(int arr[], const int n)//код заполнения массива случ числами
-{
-	for (int i = 0; i < n; i++) arr[i] = rand() % 100;
-}
-void FillRand(double arr[], const int n)//код заполнения массива случ числами
-{
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 10000;
-		arr[i] /= 100;
-	}
-}
-void FillRand(char arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand();
-	}
-}
-void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] = rand() % 100;
-		}
-	}
-}
-void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] = rand() % 1000;
-			arr[i][j] /= 100;
-		}
-	}
-}
-void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			arr[i][j] = rand();
-		}
-	}
-}
-
-template <typename T> void Print(T arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-}
-void Print(char arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-	for (int i = 0; i < n; i++)
-	{
-		cout << int(arr[i]) << tab;
-	}
-	cout << endl;
-}
-template <typename T> void Print(T arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < ROWS; i++)
-	{
-		for (int j = 0; j < COLS; j++)
-		{
-			cout << arr[i][j] << tab;
-		}
-		cout << endl;
-	}
-}
 
 template <typename T> void Sort(T arr[], const int n)
 {

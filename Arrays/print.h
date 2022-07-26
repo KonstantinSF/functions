@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "constants.h"
 template <typename T> void Print(T arr[], const int n);
 void Print(char arr[], const int n);
