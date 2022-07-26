@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="FillRand.cpp" />
     <ClCompile Include="Print.cpp" />
+    <ClCompile Include="PrintNONtempleted.cpp" />
+    <ClCompile Include="Shifts.cpp" />
+    <ClCompile Include="Sort.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

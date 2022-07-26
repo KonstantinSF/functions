@@ -1,23 +1,9 @@
 #include "print.h"
-
 template <typename T> void Print(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
 		cout << arr[i] << tab;
-	}
-	cout << endl;
-}
-void Print(char arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-	for (int i = 0; i < n; i++)
-	{
-		cout << int(arr[i]) << tab;
 	}
 	cout << endl;
 }
