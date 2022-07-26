@@ -3,7 +3,7 @@ using namespace std;
 void elevator(int floor);
 void main()
 {
-	setlocale(LC_ALL, "Russian");
+	setlocale(LC_ALL, "");
 	//cout << "Hello World!";
 	int floor;
 	cout << "Введите номер этажа: "; cin >> floor;
@@ -18,4 +18,5 @@ void elevator(int floor)
 	}
 	cout << "Вы на " << floor << "  этаже\n";
 	elevator(floor-1);
+	cout << "Вы на " << floor << "  этаже\n";
 }
