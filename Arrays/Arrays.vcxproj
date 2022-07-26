@@ -141,6 +141,15 @@
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="fillrand.h" />
+    <ClInclude Include="print.h" />
+    <ClInclude Include="shifts.h" />
+    <ClInclude Include="sort.h" />
+    <ClInclude Include="statistics.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
