@@ -1,8 +1,8 @@
 #include "shifts.h"
 
-template <typename T> void ShiftLeft(T arr[], const int n)
+template <typename T> void ShiftLeft(T arr[], const int n, int number_of_shifts)
 {
-	for (int k = 0; k < shift_left; k++)
+	for (int k = 0; k < number_of_shifts; k++)
 	{
 		T buffer = arr[0];
 		for (int i = 0; i < n; i++)
@@ -12,9 +12,9 @@ template <typename T> void ShiftLeft(T arr[], const int n)
 		arr[n - 1] = buffer;
 	}
 }
-template <typename T> void ShiftRight(T arr[], const int n)
+template <typename T> void ShiftRight(T arr[], const int n, int number_of_shifts)
 {
-	for (int k = 0; k < shift_right; k++)
+	for (int k = 0; k < number_of_shifts; k++)
 	{
 		T buffer = arr[n - 1];
 		for (int i = n - 1; i >= 0; i--)
@@ -25,9 +25,9 @@ template <typename T> void ShiftRight(T arr[], const int n)
 	}
 }
 
-template <typename T> void ShiftLeft(T arr[ROWS][COLS], const int ROWS, const int COLS)
+template <typename T> void ShiftLeft(T arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts)
 {
-	for (int k = 1; k <= shift_left; k++)
+	for (int k = 1; k <=number_of_shifts; k++)
 	{
 		T buffer = arr[0][0];
 		for (int i = 0; i < ROWS; i++)
@@ -40,9 +40,9 @@ template <typename T> void ShiftLeft(T arr[ROWS][COLS], const int ROWS, const in
 		arr[ROWS - 1][COLS - 1] = buffer;
 	}
 }
-template <typename T> void ShiftRight(T arr[ROWS][COLS], const int ROWS, const int COLS)
+template <typename T> void ShiftRight(T arr[ROWS][COLS], const int ROWS, const int COLS, int number_of_shifts)
 {
-	for (int s = 0; s < shift_right; s++)
+	for (int s = 0; s < number_of_shifts; s++)
 	{
 		T buffer = arr[ROWS - 1][COLS - 1];
 		for (int i = ROWS - 1; i >= 0; i--)
