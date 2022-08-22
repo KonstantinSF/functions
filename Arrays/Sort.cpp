@@ -1,3 +1,5 @@
+#include "sort.h"
+#include "constants.h"
 template <typename T> void Sort(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)

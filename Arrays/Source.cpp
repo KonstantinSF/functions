@@ -8,6 +8,7 @@
 #include"statistics.h"
 #include"shifts.h"
 #include "UniqueRand2D.h"
+#include "Sort2D.h"
 
 #include "Print.cpp"
 #include"Sort.cpp"
@@ -15,6 +16,7 @@
 #include "Statistics.cpp"
 #include "UniqueRand2D.cpp"
 #include "UniqueRand2Dvar2.cpp"
+#include "Sort2D.cpp"
 
 void main()
 {
@@ -127,4 +129,8 @@ void main()
 	UniqueRand2Dv2(arr_2D_sample, ROWS, COLS);
 	cout << "Заполнение уник. числами 2D массива вар.2" << endl;
 	Print(arr_2D_sample, ROWS, COLS);
+	cout << delimiter; 
+	cout << "После сортировки 2D массива: " << endl; 
+	Sort2D(arr_2D_double, ROWS, COLS);
+	Print(arr_2D_double, ROWS, COLS);
 }
