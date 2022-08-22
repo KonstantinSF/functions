@@ -39,6 +39,9 @@
     <ClCompile Include="UniqueRand2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UniqueRand2Dvar2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UniqueRand2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UniqueRand2Dvar2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

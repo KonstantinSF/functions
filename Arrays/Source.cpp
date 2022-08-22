@@ -14,9 +14,7 @@
 #include "Shifts.cpp"
 #include "Statistics.cpp"
 #include "UniqueRand2D.cpp"
-template <typename T>
-void UniqueRand2Dv2(T arr[ROWS][COLS], const int ROWS, const int COLS);
-
+#include "UniqueRand2Dvar2.cpp"
 
 void main()
 {
@@ -129,21 +127,4 @@ void main()
 	UniqueRand2Dv2(arr_2D_sample, ROWS, COLS);
 	cout << "Заполнение уник. числами 2D массива вар.2" << endl;
 	Print(arr_2D_sample, ROWS, COLS);
-}
-
-template <typename T>
-void UniqueRand2Dv2(T arr[ROWS][COLS], const int ROWS, const int COLS)
-{
-	for (int i = 0; i < (ROWS * COLS); i++)
-	{
-		arr[0][i] = rand() % (ROWS * COLS);
-		for (int j = 0; j < i; j++)
-		{
-			if (arr[0][i] == arr[0][j])
-			{
-				i--;
-				break; 
-			}
-		}
-	}
 }
