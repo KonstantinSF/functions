@@ -146,6 +146,7 @@
     <ClCompile Include="Sort.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Statistics.cpp" />
+    <ClCompile Include="UniqueRand2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constants.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="sort.h" />
     <ClInclude Include="statistics.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="UniqueRand2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

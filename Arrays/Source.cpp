@@ -7,11 +7,13 @@
 #include"sort.h"
 #include"statistics.h"
 #include"shifts.h"
+#include "UniqueRand2D.h"
 
 #include "Print.cpp"
 #include"Sort.cpp"
 #include "Shifts.cpp"
 #include "Statistics.cpp"
+#include "UniqueRand2D.cpp"
 
 
 void main()
@@ -116,4 +118,7 @@ void main()
 	ShiftRight(arr_2D_char, ROWS, COLS, number_of_shifts);
 	cout << "Сдвиг вправо 2D массива символов: " << endl;
 	Print(arr_2D_char, ROWS, COLS);
+	cout << delimiter;
+	UniqRandom(arr_2D_sample, ROWS, COLS);
+	Print(arr_2D_sample, ROWS, COLS);
 }
